@@ -5,21 +5,22 @@ import ClientLayout from "./client";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-  title: "Nihal Maskey | Senior Software Engineer",
+  title: "Wildan Haifan Jadid | Full Stack Software Engineer",
   description:
-    "Portfolio of Nihal Maskey, a Senior Software Engineer specializing in JavaScript, TypeScript, React.js, Node.js, Laravel, and AWS.",
+    "Portfolio of Wildan Haifan Jadid, a Full Stack Software Engineer based in Brebes, Indonesia, specializing in JavaScript, TypeScript, React.js, Node.js.",
   keywords: [
-    "Nihal Maskey",
+    "Wildan Haifan Jadid",
     "Software Engineer",
     "Full Stack Developer",
     "JavaScript",
     "TypeScript",
     "React",
     "Node.js",
-    "AWS",
+    "Brebes",
+    "Indonesia",
   ],
-  authors: [{ name: "Nihal Maskey" }],
-  creator: "Nihal Maskey",
+  authors: [{ name: "Wildan Haifan Jadid" }],
+  creator: "Wildan Haifan Jadid",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -31,25 +32,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://nihalmaskey.com",
-    title: "Nihal Maskey | Senior Software Engineer",
+    title: "Wildan Haifan Jadid | Full Stack Software Engineer",
     description:
-      "Portfolio of Nihal Maskey, a Senior Software Engineer specializing in JavaScript, TypeScript, React.js, Node.js, Laravel, and AWS.",
-    siteName: "Nihal Maskey Portfolio",
+      "Portfolio of Wildan Haifan Jadid, a Full Stack Software Engineer based in Brebes, Indonesia, specializing in JavaScript, TypeScript, React.js, Node.js.",
+    siteName: "Wildan Haifan Jadid Portfolio",
     images: [
       {
         url: "/favicon.png",
         width: 512,
         height: 512,
-        alt: "Nihal Maskey Logo",
+        alt: "Wildan Haifan Jadid Logo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nihal Maskey | Senior Software Engineer",
+    title: "Wildan Haifan Jadid | Full Stack Software Engineer",
     description:
-      "Portfolio of Nihal Maskey, a Senior Software Engineer specializing in JavaScript, TypeScript, React.js, Node.js, Laravel, and AWS.",
-    creator: "@maskeynihal",
+      "Portfolio of Wildan Haifan Jadid, a Full Stack Software Engineer based in Brebes, Indonesia, specializing in JavaScript, TypeScript, React.js, Node.js.",
     images: ["/favicon.png"],
   },
   robots: {

@@ -8,9 +8,9 @@ import Contact from "@/components/contact"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Nihal Maskey | Senior Software Engineer",
+  title: "Wildan Haifan Jadid | Full Stack Software Engineer",
   description:
-    "Portfolio of Nihal Maskey, a Senior Software Engineer specializing in JavaScript, TypeScript, React.js, Node.js, Laravel, and AWS.",
+    "Portfolio of Wildan Haifan Jadid, a Full Stack Software Engineer based in Brebes, Indonesia, specializing in JavaScript, TypeScript, React.js, Node.js.",
 }
 
 export default function Home() {
