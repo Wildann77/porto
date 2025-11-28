@@ -42,7 +42,7 @@ export default function Projects() {
     },
     {
       title: "E-commerce Mern",
-      Description: "a web application that allows users to browse and purchase products using the Rset API. Built with React.js, Tailwind CSS, and Axios.",
+      description: "a web application that allows users to browse and purchase products using the Rset API. Built with React.js, Tailwind CSS, and Axios.",
       tags: ["JavaScript", "React.js", "Tailwind CSS", "Rest API"],
       codeLink: "https://github.com/Wildann77/E-Commerce_Mern",
       liveLink: "https://e-commerce-mern-kohl.vercel.app/",
