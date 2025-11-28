@@ -11,9 +11,10 @@ export function ModeToggle() {
 
   return (
     <Menu as="div" className="relative z-[1000]">
-      <Menu.Button className="h-9 w-9 flex items-center justify-center rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
-        <Sun className="h-5 w-5 dark:hidden" />
-        <Moon className="h-5 w-5 hidden dark:block" />
+      <Menu.Button className="h-9 w-9 flex items-center justify-center rounded-md border border-border bg-background hover:bg-accent hover:text-accent-foreground transition-colors">
+        <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+        <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+        <span className="sr-only">Toggle theme</span>
       </Menu.Button>
 
       <Transition
@@ -26,17 +27,17 @@ export function ModeToggle() {
         leaveTo="opacity-0 scale-95"
       >
         <Menu.Items
-          className="fixed right-4 top-16 w-32 bg-white dark:bg-gray-800 divide-y divide-gray-100 rounded-md shadow-lg z-[1010] focus:outline-none"
+          className="absolute right-0 mt-2 w-36 origin-top-right rounded-md border border-border bg-popover p-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
         >
-          <div className="px-1 py-1">
+          <div className="space-y-1">
             <Menu.Item>
               {({ active }) => (
                 <button
-                  className={`${
-                    active ? "bg-gray-100 dark:bg-gray-700" : ""
-                  } group flex w-full items-center px-2 py-2 text-sm rounded-md`}
+                  className={`${active ? "bg-accent text-accent-foreground" : "text-popover-foreground"
+                    } group flex w-full items-center gap-2 rounded-sm px-3 py-2 text-sm transition-colors`}
                   onClick={() => setTheme("light")}
                 >
+                  <Sun className="h-4 w-4" />
                   Light
                 </button>
               )}
@@ -45,11 +46,11 @@ export function ModeToggle() {
             <Menu.Item>
               {({ active }) => (
                 <button
-                  className={`${
-                    active ? "bg-gray-100 dark:bg-gray-700" : ""
-                  } group flex w-full items-center px-2 py-2 text-sm rounded-md`}
+                  className={`${active ? "bg-accent text-accent-foreground" : "text-popover-foreground"
+                    } group flex w-full items-center gap-2 rounded-sm px-3 py-2 text-sm transition-colors`}
                   onClick={() => setTheme("dark")}
                 >
+                  <Moon className="h-4 w-4" />
                   Dark
                 </button>
               )}
@@ -58,11 +59,23 @@ export function ModeToggle() {
             <Menu.Item>
               {({ active }) => (
                 <button
-                  className={`${
-                    active ? "bg-gray-100 dark:bg-gray-700" : ""
-                  } group flex w-full items-center px-2 py-2 text-sm rounded-md`}
+                  className={`${active ? "bg-accent text-accent-foreground" : "text-popover-foreground"
+                    } group flex w-full items-center gap-2 rounded-sm px-3 py-2 text-sm transition-colors`}
                   onClick={() => setTheme("system")}
                 >
+                  <svg
+                    className="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
                   System
                 </button>
               )}
