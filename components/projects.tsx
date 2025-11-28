@@ -46,6 +46,13 @@ export default function Projects() {
       tags: ["JavaScript", "React.js", "Tailwind CSS", "Rest API"],
       codeLink: "https://github.com/Wildann77/E-Commerce_Mern",
       liveLink: "https://e-commerce-mern-kohl.vercel.app/",
+    },
+    {
+      title: "Mern Chat",
+      description: "A web application that allows users to chat with each other using the Rset API. Built with React.js, Tailwind CSS, and Axios.",
+      tags: ["JavaScript", "React.js", "Tailwind CSS", "Rest API"],
+      codeLink: "https://github.com/Wildann77/mern_chat",
+      liveLink: "https://mern-chat-khaki-one.vercel.app/",
     }
   ];
 
