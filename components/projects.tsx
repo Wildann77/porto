@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
 import Link from "next/link";
 import OpenSource from "./open-source";
+import { title } from "process";
+import { Description } from "@headlessui/react";
 
 export default function Projects() {
   const projects = [
@@ -30,6 +32,21 @@ export default function Projects() {
       codeLink: "https://github.com/Wildann77/ppm_rumah_hijau",
       liveLink: "https://ppm-rumah-hijau.vercel.app/",
     },
+    {
+      title: "Project Management Mern",
+      description:
+        "A web application that allows users to manage their projects using the Rset API. Built with React.js, Tailwind CSS, and Axios.",
+      tags: ["JavaScript", "React.js", "Tailwind CSS", "Rest API"],
+      codeLink: "https://github.com/Wildann77/project_management_mern",
+      liveLink: "https://project-management-mern-gamma.vercel.app/",
+    },
+    {
+      title: "E-commerce Mern",
+      Description: "a web application that allows users to browse and purchase products using the Rset API. Built with React.js, Tailwind CSS, and Axios.",
+      tags: ["JavaScript", "React.js", "Tailwind CSS", "Rest API"],
+      codeLink: "https://github.com/Wildann77/E-Commerce_Mern",
+      liveLink: "https://e-commerce-mern-kohl.vercel.app/",
+    }
   ];
 
   return (
