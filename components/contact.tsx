@@ -79,10 +79,10 @@ export default function Contact() {
           <motion.div className="space-y-7" variants={itemVariants}>
             <span className="section-eyebrow">Contact</span>
             <h2 className="font-sans text-4xl font-black leading-tight tracking-normal sm:text-5xl md:text-6xl">
-              Have a build that needs care?
+              Get in touch.
             </h2>
             <p className="max-w-xl text-base leading-8 text-muted-foreground md:text-lg">
-              Send a short note about the project, timeline, or team. I will respond with a practical next step.
+              Feel free to reach out for collaborations, project inquiries, or just to say hello.
             </p>
 
             <div className="space-y-4">
@@ -122,8 +122,8 @@ export default function Contact() {
               <CardContent className="p-5 md:p-6">
                 <div className="mb-6 flex flex-col gap-3 border-b border-border/45 pb-6 sm:flex-row sm:items-center sm:justify-between">
                   <div>
-                    <p className="text-xs uppercase text-muted-foreground">Project inquiry</p>
-                    <h3 className="mt-2 font-sans text-2xl font-black">Start the conversation</h3>
+                    <p className="text-xs uppercase text-muted-foreground">Contact Form</p>
+                    <h3 className="mt-2 font-sans text-2xl font-black">Send a message</h3>
                   </div>
                   <div className="flex gap-2">
                     <Button variant="outline" size="icon" className="rounded-full bg-background/35" asChild>
