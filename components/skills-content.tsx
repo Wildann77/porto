@@ -34,10 +34,10 @@ export default function SkillsContent() {
       <div className="flex flex-col gap-3 border-b border-border/45 pb-6 md:flex-row md:items-end md:justify-between">
         <div className="space-y-3">
           <span className="section-eyebrow">Skills</span>
-          <h3 className="font-sans text-3xl font-black tracking-normal">Technical range</h3>
+          <h3 className="font-sans text-3xl font-black tracking-normal">Technical Skills</h3>
         </div>
         <p className="max-w-md text-sm leading-7 text-muted-foreground">
-          Practical stack coverage for frontends, APIs, data, delivery tooling, and team workflows.
+          A summary of languages, frameworks, databases, and tools I use to build applications.
         </p>
       </div>
 
