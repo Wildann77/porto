@@ -14,60 +14,47 @@ import type { ProjectItem } from "@/types"
 
 const projects: ProjectItem[] = [
   {
+    title: "Real-Time Sports Dashboard",
+    description:
+      "A high-frequency live sports update system using WebSockets, Go goroutines, and an interactive React interface.",
+    tags: ["Go", "WebSockets", "React.js", "TypeScript", "Tailwind CSS"],
+    codeLink: "https://github.com/Wildann77",
+  },
+  {
+    title: "Bunda Care Ecosystem",
+    description:
+      "A digital tracking ecosystem for mother and toddler health, with mobile and web platforms sharing a centralized database.",
+    tags: ["Node.js", "Express.js", "MongoDB", "Flutter", "Tailwind CSS"],
+    codeLink: "https://github.com/Wildann77",
+  },
+  {
+    title: "Go Microservices",
+    description:
+      "A prototype microservices architecture built with Go, utilizing GraphQL API gates and RabbitMQ for message brokers.",
+    tags: ["Go", "GraphQL", "RabbitMQ", "Docker"],
+    codeLink: "https://github.com/Wildann77",
+  },
+  {
+    title: "Muhammadiyah Bulakamba",
+    description:
+      "A headless organization profile built with MySQL and React to manage administrative data, organization news, and public portals.",
+    tags: ["TypeScript", "Express.js", "MySQL", "React.js", "CSS Modules"],
+    codeLink: "https://github.com/Wildann77",
+  },
+  {
+    title: "Decoupled JWT Auth",
+    description:
+      "A modular standalone authentication system with bcrypt hashing, token validation, and secure route protection.",
+    tags: ["TypeScript", "Node.js", "Express.js", "JWT", "React.js"],
+    codeLink: "https://github.com/Wildann77",
+  },
+  {
     title: "Movie App",
     description:
       "Search and browse movies using a clean, responsive interface powered by a third-party API.",
     tags: ["JavaScript", "React.js", "Tailwind CSS", "REST API"],
     codeLink: "https://github.com/Wildann77/MovieApp",
     liveLink: "https://movie-app-nu-green.vercel.app/",
-  },
-  {
-    title: "SocialDigital",
-    description:
-      "A content-sharing social platform featuring user profiles and real-time database updates.",
-    tags: ["JavaScript", "Next.js", "Tailwind CSS", "Firebase"],
-    codeLink: "https://github.com/Wildann77/SocialDigital",
-    liveLink: "https://social-digital.vercel.app/",
-  },
-  {
-    title: "Ppm Rumah Hijau",
-    description:
-      "A simple online storefront for browsing and purchasing plants and gardening supplies.",
-    tags: ["JavaScript", "React.js", "CSS", "Firebase"],
-    codeLink: "https://github.com/Wildann77/ppm_rumah_hijau",
-    liveLink: "https://ppm-rumah-hijau.vercel.app/",
-  },
-  {
-    title: "Project Management Mern",
-    description:
-      "A collaborative tool to create, assign, and track projects and tasks in real-time.",
-    tags: ["JavaScript", "React.js", "Tailwind CSS", "REST API"],
-    codeLink: "https://github.com/Wildann77/project_management_mern",
-    liveLink: "https://project-management-mern-gamma.vercel.app/",
-  },
-  {
-    title: "E-commerce Mern",
-    description:
-      "A full-featured shopping cart system with product search, filters, and clean checkout workflow.",
-    tags: ["JavaScript", "React.js", "Tailwind CSS", "REST API"],
-    codeLink: "https://github.com/Wildann77/E-Commerce_Mern",
-    liveLink: "https://e-commerce-mern-kohl.vercel.app/",
-  },
-  {
-    title: "Mern Chat",
-    description:
-      "A real-time messaging application exploring full-stack WebSocket connection and communications.",
-    tags: ["JavaScript", "React.js", "Tailwind CSS", "REST API"],
-    codeLink: "https://github.com/Wildann77/mern_chat",
-    liveLink: "https://mern-chat-khaki-one.vercel.app/",
-  },
-  {
-    title: "Mern Blog",
-    description:
-      "A blogging platform for writing, editing, and publishing articles with rich-text editor support.",
-    tags: ["JavaScript", "React.js", "Tailwind CSS", "REST API"],
-    codeLink: "https://github.com/Wildann77/mern_blog",
-    liveLink: "https://mern-blog-gold-eight.vercel.app/",
   },
 ]
 
