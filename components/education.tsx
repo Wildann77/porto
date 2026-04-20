@@ -37,11 +37,10 @@ export default function Education() {
           <div className="space-y-5">
             <span className="section-eyebrow">Education</span>
             <h2 className="font-sans text-4xl font-black leading-tight tracking-normal sm:text-5xl md:text-6xl">
-              Academic base for practical engineering.
+              Education & Foundations.
             </h2>
             <p className="text-base leading-8 text-muted-foreground md:text-lg">
-              Computer engineering foundations that support software design, implementation,
-              and system thinking.
+              My academic background in computer engineering, focusing on core software concepts and analytical problem solving.
             </p>
           </div>
 
@@ -67,8 +66,7 @@ export default function Education() {
                   <div className="space-y-3">
                     <p className="text-sm uppercase text-muted-foreground">Universitas Harkat Negeri</p>
                     <p className="text-base leading-8 text-muted-foreground">
-                      Completed a computer engineering program with focus areas in software
-                      development, algorithms, data structures, and system design.
+                      Studied key foundations of computer engineering, learning how to design software and solve complex algorithmic problems.
                     </p>
                   </div>
                   <div className="mt-8 grid gap-3 sm:grid-cols-2">
