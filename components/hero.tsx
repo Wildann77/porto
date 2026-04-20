@@ -61,7 +61,7 @@ export default function Hero() {
         <div className="grid min-h-[calc(100dvh-4rem)] grid-rows-[auto_auto_1fr_auto] gap-8 md:hidden">
           <motion.div className="space-y-6" {...reveal(0)}>
             <p className="max-w-[650px] font-sans text-[clamp(1.65rem,2.75vw,3.05rem)] font-medium uppercase leading-[1.12] tracking-normal text-foreground">
-              Full stack engineer blending creativity and usability into digital experiences
+              Full-stack software engineer building clean and reliable web applications
             </p>
             <div className="flex flex-wrap gap-3">
               {socials.map((social) => {
@@ -94,7 +94,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.p className="max-w-[330px] self-end text-base leading-snug text-foreground" {...reveal(0.18)}>
-            Currently partnering with teams and collaborating on polished, reliable web products.
+            Focused on building reliable, responsive, and polished web products.
           </motion.p>
 
           <motion.div className="relative" {...reveal(0.26, 26)}>
@@ -108,7 +108,7 @@ export default function Hero() {
           className="absolute left-10 top-[5.4rem] hidden max-w-[620px] font-sans text-[clamp(1.55rem,1.72vw,2.08rem)] font-medium uppercase leading-[1.12] tracking-normal text-foreground md:block lg:left-16 lg:top-[5.7rem]"
           {...reveal(0)}
         >
-          Full stack engineer blending creativity and usability into digital experiences
+          Full-stack software engineer building clean and reliable web applications
         </motion.p>
 
         <motion.div
@@ -132,9 +132,9 @@ export default function Hero() {
           className="absolute bottom-[34vh] left-10 hidden max-w-[360px] text-[0.98rem] leading-snug text-foreground md:block lg:left-16"
           {...reveal(0.18)}
         >
-          Currently partnering with clients
+          Focused on building clean,
           <br />
-          and collaborating with teams worldwide.
+          reliable, and responsive web products.
         </motion.p>
 
         <motion.div
