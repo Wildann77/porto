@@ -12,25 +12,45 @@ import type { ExperienceItem } from "@/types"
 
 const experiences: ExperienceItem[] = [
   {
-    title: "Capstone Project",
-    company: "Personal Project",
-    period: "Jan 2025 - Present",
-    location: "Tegal, Indonesia",
+    title: "Freelance Full Stack Developer",
+    company: "Self-Employed",
+    period: "Mar 2024 - Present",
+    location: "Remote, Indonesia",
     achievements: [
-      "Building a full-stack task management application with React.js, Node.js, and MongoDB.",
-      "Implementing user authentication and database operations.",
-      "Designing a clean, responsive layout for better usability across devices.",
+      "Building and deploying production-ready web applications using Next.js, TypeScript, and PostgreSQL.",
+      "Integrating Gemini AI API to enable intelligent content generation and recommendations.",
+      "Developing e-commerce solutions with custom admin panels and payment integration.",
     ],
   },
   {
-    title: "Pengabdian Masyarakat",
-    company: "Rumah Hijau Nursery",
-    period: "Aug 2023 - Dec 2023",
+    title: "Full Stack Developer (HiringBase)",
+    company: "Capstone Project Sem. 6",
+    period: "Feb 2026 - Present",
     location: "Tegal, Indonesia",
     achievements: [
-      "Developed a website for Rumah Hijau Nursery to improve local business visibility.",
-      "Built responsive page layouts ensuring compatibility across mobile and desktop screens.",
-      "Collaborated with owners to implement client-requested updates.",
+      "Developing an AI-powered recruitment platform with ticket-based registration and screening.",
+      "Building modular backend APIs for authentication, job management, and AI screening.",
+      "Implementing worker schedules for automated AI-based candidate evaluations.",
+    ],
+  },
+  {
+    title: "Full Stack Developer (Bunda Care)",
+    company: "Capstone Project Sem. 5",
+    period: "Oct 2025 - Dec 2025",
+    location: "Tegal, Indonesia",
+    achievements: [
+      "Optimizing core features of a digital health tracking platform for mother and toddler care.",
+      "Collaborating on long-term system architecture planning and database schema design.",
+    ],
+  },
+  {
+    title: "Full Stack Developer",
+    company: "Community Service Project",
+    period: "Aug 2024 - Dec 2024",
+    location: "Tegal, Indonesia",
+    achievements: [
+      "Created responsive web profile and e-commerce solutions for a local nursery business.",
+      "Managed full deployment workflows from database design to hosting platforms.",
     ],
   },
 ]
