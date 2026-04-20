@@ -10,23 +10,23 @@ import { useReducedMotion } from "@/hooks/useReducedMotion"
 const features = [
   {
     icon: Code2,
-    title: "Interface Engineering",
-    description: "React, TypeScript, and Tailwind interfaces with strong attention to responsive behavior.",
+    title: "Frontend Development",
+    description: "Building responsive, modern user interfaces using React, TypeScript, and Tailwind CSS.",
   },
   {
     icon: Server,
-    title: "Product Backends",
-    description: "Node.js, REST APIs, database flows, and deployment-ready full-stack implementation.",
+    title: "Backend Development",
+    description: "Developing robust APIs and handling database integrations using Node.js and Express.",
   },
   {
     icon: Users,
-    title: "Delivery Rhythm",
-    description: "Comfortable leading small teams, clarifying scope, and shipping with a steady cadence.",
+    title: "Collaboration",
+    description: "Working efficiently in team environments to deliver high-quality, practical features.",
   },
   {
     icon: Globe,
-    title: "Remote Collaboration",
-    description: "Clear async communication across product, design, and engineering contexts.",
+    title: "Adaptability",
+    description: "Quick to learn new tools and implement technical solutions for diverse product requirements.",
   },
 ]
 
@@ -70,12 +70,10 @@ export default function About() {
           <motion.div className="space-y-6" variants={itemVariants}>
             <span className="section-eyebrow">About</span>
             <h2 className="font-sans text-4xl font-black leading-tight tracking-normal sm:text-5xl md:text-6xl">
-              Engineer with design taste and delivery discipline.
+              Building clean code and thoughtful designs.
             </h2>
             <p className="max-w-xl text-base leading-8 text-muted-foreground md:text-lg">
-              I build thoughtful, scalable web applications with a strong focus on performance,
-              usability, and durable engineering decisions. My work sits between product polish
-              and practical full-stack execution.
+              I design and build functional web applications. Focused on clean code, responsive interfaces, and practical technical solutions.
             </p>
           </motion.div>
 
