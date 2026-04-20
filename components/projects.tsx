@@ -16,7 +16,7 @@ const projects: ProjectItem[] = [
   {
     title: "Movie App",
     description:
-      "A web application for browsing and searching movies with a responsive React.js interface.",
+      "Search and browse movies using a clean, responsive interface powered by a third-party API.",
     tags: ["JavaScript", "React.js", "Tailwind CSS", "REST API"],
     codeLink: "https://github.com/Wildann77/MovieApp",
     liveLink: "https://movie-app-nu-green.vercel.app/",
@@ -24,7 +24,7 @@ const projects: ProjectItem[] = [
   {
     title: "SocialDigital",
     description:
-      "A social platform built with Next.js for content sharing, profiles, and user interaction.",
+      "A content-sharing social platform featuring user profiles and real-time database updates.",
     tags: ["JavaScript", "Next.js", "Tailwind CSS", "Firebase"],
     codeLink: "https://github.com/Wildann77/SocialDigital",
     liveLink: "https://social-digital.vercel.app/",
@@ -32,7 +32,7 @@ const projects: ProjectItem[] = [
   {
     title: "Ppm Rumah Hijau",
     description:
-      "A simple ecommerce experience for selling plants and gardening supplies.",
+      "A simple online storefront for browsing and purchasing plants and gardening supplies.",
     tags: ["JavaScript", "React.js", "CSS", "Firebase"],
     codeLink: "https://github.com/Wildann77/ppm_rumah_hijau",
     liveLink: "https://ppm-rumah-hijau.vercel.app/",
@@ -40,7 +40,7 @@ const projects: ProjectItem[] = [
   {
     title: "Project Management Mern",
     description:
-      "A project management application focused on task coordination and full-stack workflows.",
+      "A collaborative tool to create, assign, and track projects and tasks in real-time.",
     tags: ["JavaScript", "React.js", "Tailwind CSS", "REST API"],
     codeLink: "https://github.com/Wildann77/project_management_mern",
     liveLink: "https://project-management-mern-gamma.vercel.app/",
@@ -48,7 +48,7 @@ const projects: ProjectItem[] = [
   {
     title: "E-commerce Mern",
     description:
-      "A shopping experience for browsing and purchasing products with a MERN-based stack.",
+      "A full-featured shopping cart system with product search, filters, and clean checkout workflow.",
     tags: ["JavaScript", "React.js", "Tailwind CSS", "REST API"],
     codeLink: "https://github.com/Wildann77/E-Commerce_Mern",
     liveLink: "https://e-commerce-mern-kohl.vercel.app/",
@@ -56,7 +56,7 @@ const projects: ProjectItem[] = [
   {
     title: "Mern Chat",
     description:
-      "A real-time chat application exploring messaging workflows and full-stack communication.",
+      "A real-time messaging application exploring full-stack WebSocket connection and communications.",
     tags: ["JavaScript", "React.js", "Tailwind CSS", "REST API"],
     codeLink: "https://github.com/Wildann77/mern_chat",
     liveLink: "https://mern-chat-khaki-one.vercel.app/",
@@ -64,7 +64,7 @@ const projects: ProjectItem[] = [
   {
     title: "Mern Blog",
     description:
-      "A blogging platform for authoring, editing, and managing posts through a MERN stack.",
+      "A blogging platform for writing, editing, and publishing articles with rich-text editor support.",
     tags: ["JavaScript", "React.js", "Tailwind CSS", "REST API"],
     codeLink: "https://github.com/Wildann77/mern_blog",
     liveLink: "https://mern-blog-gold-eight.vercel.app/",
@@ -133,12 +133,11 @@ export default function Projects() {
             <div className="space-y-4">
               <span className="section-eyebrow">Projects</span>
               <h2 className="font-sans text-4xl font-black leading-tight tracking-normal sm:text-5xl md:text-6xl">
-                Selected builds with product intent.
+                Projects I&apos;ve Built.
               </h2>
             </div>
             <p className="max-w-2xl text-base leading-8 text-muted-foreground md:justify-self-end md:text-lg">
-              Personal and professional builds across product discovery, responsive frontends,
-              full-stack workflows, and live deployments.
+              A collection of personal projects exploring frontend interfaces, full-stack functionality, and API integrations.
             </p>
           </motion.div>
 
