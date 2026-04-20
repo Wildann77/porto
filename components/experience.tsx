@@ -17,20 +17,20 @@ const experiences: ExperienceItem[] = [
     period: "Jan 2025 - Present",
     location: "Tegal, Indonesia",
     achievements: [
-      "Developing a full-stack application with React.js, Node.js, and MongoDB for personal task management.",
-      "Implementing authentication, CRUD workflows, and responsive patterns for a seamless cross-device experience.",
-      "Collaborating with a team on product planning, delivery, and communication cadence.",
+      "Building a full-stack task management application with React.js, Node.js, and MongoDB.",
+      "Implementing user authentication and database operations.",
+      "Designing a clean, responsive layout for better usability across devices.",
     ],
   },
   {
-    title: "Pengadian Masyarakat",
-    company: "Rumah Hijau Nursey",
+    title: "Pengabdian Masyarakat",
+    company: "Rumah Hijau Nursery",
     period: "Aug 2023 - Dec 2023",
     location: "Tegal, Indonesia",
     achievements: [
-      "Developed a website for Rumah Hijau Nursery to strengthen their online presence.",
-      "Implemented responsive design principles for better accessibility across devices.",
-      "Worked closely with stakeholders to translate feedback into practical improvements.",
+      "Developed a website for Rumah Hijau Nursery to improve local business visibility.",
+      "Built responsive page layouts ensuring compatibility across mobile and desktop screens.",
+      "Collaborated with owners to implement client-requested updates.",
     ],
   },
 ]
@@ -74,11 +74,10 @@ export default function Experience() {
           <motion.div className="space-y-6 lg:sticky lg:top-28 lg:self-start" variants={itemVariants}>
             <span className="section-eyebrow">Experience</span>
             <h2 className="font-sans text-4xl font-black leading-tight tracking-normal sm:text-5xl md:text-6xl">
-              Systems, teams, and shipped interfaces.
+              Professional Journey.
             </h2>
             <p className="text-base leading-8 text-muted-foreground md:text-lg">
-              A compact timeline of builds where engineering decisions, stakeholder feedback,
-              and responsive UI craft had to meet in the same place.
+              A brief timeline of my development work, focusing on responsive UI implementation and community collaboration.
             </p>
           </motion.div>
 
