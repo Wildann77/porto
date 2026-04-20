@@ -7,7 +7,14 @@ import { Card, CardContent } from "@/components/ui/card"
 import { useInView } from "@/hooks/useInView"
 import { useReducedMotion } from "@/hooks/useReducedMotion"
 
-const focusAreas = ["Software development", "Algorithms", "Data structures", "System design"]
+const focusAreas = [
+  "Web Programming",
+  "Mobile Programming",
+  "Databases & SQL",
+  "Software Engineering",
+  "Software Testing",
+  "Artificial Intelligence",
+]
 
 export default function Education() {
   const { ref, isInView } = useInView({ threshold: 0.15, once: true })
@@ -55,10 +62,11 @@ export default function Education() {
                     <Layers3 aria-hidden="true" className="h-6 w-6 text-muted-foreground" />
                   </div>
                   <div>
-                    <p className="text-xs uppercase text-muted-foreground">Bachelor degree</p>
+                    <p className="text-xs uppercase text-muted-foreground">Applied Bachelor (D4)</p>
                     <h3 className="mt-3 font-sans text-2xl font-black leading-tight">
-                      Computer Engineering
+                      Informatics Engineering
                     </h3>
+                    <p className="mt-2 text-sm font-semibold text-primary">GPA: 3.77 / 4.0</p>
                   </div>
                 </div>
 
@@ -66,7 +74,7 @@ export default function Education() {
                   <div className="space-y-3">
                     <p className="text-sm uppercase text-muted-foreground">Universitas Harkat Negeri</p>
                     <p className="text-base leading-8 text-muted-foreground">
-                      Studied key foundations of computer engineering, learning how to design software and solve complex algorithmic problems.
+                      Studied key foundations of informatics engineering, focusing on building scalable systems, database design, and algorithmic problem solving.
                     </p>
                   </div>
                   <div className="mt-8 grid gap-3 sm:grid-cols-2">
