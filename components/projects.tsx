@@ -4,7 +4,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { ExternalLink, Github } from "lucide-react"
 
-import OpenSource from "@/components/open-source"
+// import OpenSource from "@/components/open-source"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -199,9 +199,9 @@ export default function Projects() {
             })}
           </motion.div>
 
-          <motion.div className="pt-10" variants={itemVariants}>
+          {/* <motion.div className="pt-10" variants={itemVariants}>
             <OpenSource />
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </motion.section>
