@@ -7,25 +7,11 @@ import { Card, CardContent } from "@/components/ui/card"
 
 const contributions = [
   {
-    title: "DynamoDB Dashboard",
+    title: "Coming Soon",
     description:
-      "A web-based dashboard for visualizing and managing DynamoDB tables, with features for querying, filtering, and data manipulation.",
+      "There is no project i contribute",
     tags: ["Vue.js", "DynamoDB", "AWS", "Developer Tools"],
-    link: "https://github.com/kritish-dhaubanjar/dynamodb-dashboard",
-  },
-  {
-    title: "Dev Auth Chrome Extension",
-    description:
-      "A Chrome extension to update authentication tokens for testing applications with different user roles on local development environments.",
-    tags: ["JavaScript", "Chrome Extension", "Authentication", "Developer Tools"],
-    link: "https://github.com/kritish-dhaubanjar/dev-auth-chrome-extension",
-  },
-  {
-    title: "Nginxconfig.io by DigitalOcean",
-    description:
-      "Contributed to DigitalOcean's open-source NGINX configuration generator, which helps users create optimized NGINX server configurations.",
-    tags: ["NGINX", "JavaScript", "DevOps", "Configuration"],
-    link: "https://github.com/digitalocean/nginxconfig.io/commits?author=maskeynihal",
+    link: "https://github.com",
   },
 ]
 

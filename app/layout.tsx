@@ -6,7 +6,7 @@ import { Suspense } from "react";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_APP_URL || "https://nihalmaskey.com"
+    process.env.NEXT_PUBLIC_APP_URL || "https://porto-wildann77.vercel.app"
   ),
   title: "Wildan Haifan Jadid | Full Stack Software Engineer",
   description:
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://nihalmaskey.com",
+    url: "https://porto-wildann77.vercel.app",
     title: "Wildan Haifan Jadid | Full Stack Software Engineer",
     description:
       "Portfolio of Wildan Haifan Jadid, a Full Stack Software Engineer based in Brebes, Indonesia, specializing in JavaScript, TypeScript, React.js, Node.js.",
