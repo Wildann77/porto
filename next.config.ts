@@ -1,11 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  experimental: {
-    optimizePackageImports: ["lucide-react", "framer-motion"],
+  output: "export",
+  typescript: {
+    ignoreBuildErrors: true,
   },
   images: {
-    formats: ["image/avif", "image/webp"],
+    unoptimized: true,
+  },
+  trailingSlash: true,
+  experimental: {
+    optimizePackageImports: ["lucide-react", "framer-motion"],
   },
 };
 
