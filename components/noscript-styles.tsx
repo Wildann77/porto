@@ -27,10 +27,10 @@ export default function NoScriptStyles() {
           top: 0 !important;
           left: 0 !important;
           right: 0 !important;
-          background-color: rgba(255, 255, 255, 0.7) !important;
+          background-color: color-mix(in oklch, var(--background), transparent 30%) !important;
           backdrop-filter: blur(10px) !important;
           z-index: 50 !important;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+          border-bottom: 1px solid color-mix(in oklch, var(--border), transparent 70%) !important;
         }
 
         /* Add padding to the body to account for the fixed header */
@@ -40,8 +40,8 @@ export default function NoScriptStyles() {
         
         /* Dark mode adjustments */
         .dark header {
-          background-color: rgba(0, 0, 0, 0.7) !important;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+          background-color: color-mix(in oklch, var(--background), transparent 30%) !important;
+          border-bottom: 1px solid color-mix(in oklch, var(--border), transparent 70%) !important;
         }
         
         /* Ensure mobile menu is accessible */
