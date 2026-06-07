@@ -1,82 +1,133 @@
-import { Card, CardContent } from "@/components/ui/card"
+"use client"
+
+import { motion } from "framer-motion"
+import { ArrowUpRight, MapPin } from "lucide-react"
+
 import { Badge } from "@/components/ui/badge"
-import Skills from "./skills-content"
+import { Card, CardContent } from "@/components/ui/card"
+import Skills from "@/components/skills-content"
+import { useInView } from "@/hooks/useInView"
+import { useReducedMotion } from "@/hooks/useReducedMotion"
+import type { ExperienceItem } from "@/types"
+
+const experiences: ExperienceItem[] = [
+  {
+    title: "Capstone Project",
+    company: "Personal Project",
+    period: "Jan 2025 - Present",
+    location: "Tegal, Indonesia",
+    achievements: [
+      "Developing a full-stack application with React.js, Node.js, and MongoDB for personal task management.",
+      "Implementing authentication, CRUD workflows, and responsive patterns for a seamless cross-device experience.",
+      "Collaborating with a team on product planning, delivery, and communication cadence.",
+    ],
+  },
+  {
+    title: "Pengadian Masyarakat",
+    company: "Rumah Hijau Nursey",
+    period: "Aug 2023 - Dec 2023",
+    location: "Tegal, Indonesia",
+    achievements: [
+      "Developed a website for Rumah Hijau Nursery to strengthen their online presence.",
+      "Implemented responsive design principles for better accessibility across devices.",
+      "Worked closely with stakeholders to translate feedback into practical improvements.",
+    ],
+  },
+]
 
 export default function Experience() {
-  const experiences = [
-    {
-      title: "Capstone Project ",
-      company: "Personal Project",
-      period: "Jan 2025 - Present",
-      location: "Tegal, Indonesia",
-      achievements: [
-       " Developing a full-stack web application using React.js, Node.js, and MongoDB to manage personal tasks and improve productivity.",
-       " Implementing user authentication, CRUD operations, and responsive design to ensure a seamless user experience across devices.",
-       " Collaborating with a team to design and develop the application, ensuring effective communication and coordination.",
-      ],
+  const { ref, isInView } = useInView({ threshold: 0.15, once: true })
+  const prefersReducedMotion = useReducedMotion()
+
+  const containerVariants = {
+    hidden: { opacity: prefersReducedMotion ? 1 : 0 },
+    visible: {
+      opacity: 1,
+      transition: prefersReducedMotion
+        ? { duration: 0 }
+        : { staggerChildren: 0.14, delayChildren: 0.1 },
     },
-    {
-      title: "Pengadian Masyarakat",
-      company: "Rumah Hijau Nursey",
-      period: "Aug 2023 - Dec 2023",
-      location: "Tegal, Indonesia",
-      achievements: [
-       " Developed a website for Rumah Hijau Nursery using HTML, CSS, and JavaScript to enhance their online presence and attract more customers.",
-       " Implemented responsive design principles to ensure the website is accessible and user-friendly across various devices.",
-       " Collaborated with the nursery team to gather requirements and incorporate their feedback into the website design and functionality.",
-      ],
-    }
-   
-  ]
+  }
+
+  const itemVariants = {
+    hidden: prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: prefersReducedMotion
+        ? { duration: 0 }
+        : { duration: 0.55, ease: "easeOut" },
+    },
+  }
 
   return (
-    <section id="experience" className="py-20">
-      <div className="container px-4 md:px-6 mx-auto">
-        <div className="space-y-12">
-          <div className="space-y-4 text-center">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Experience</h2>
-            <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              My professional journey and key accomplishments
+    <motion.section
+      id="experience"
+      ref={ref}
+      className="py-20 md:py-32"
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+    >
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-14">
+          <motion.div className="space-y-6 lg:sticky lg:top-28 lg:self-start" variants={itemVariants}>
+            <span className="section-eyebrow">Experience</span>
+            <h2 className="font-sans text-4xl font-black leading-tight tracking-normal sm:text-5xl md:text-6xl">
+              Systems, teams, and shipped interfaces.
+            </h2>
+            <p className="text-base leading-8 text-muted-foreground md:text-lg">
+              A compact timeline of builds where engineering decisions, stakeholder feedback,
+              and responsive UI craft had to meet in the same place.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="space-y-8 mt-12">
-            {experiences.map((experience, index) => (
-              <div key={index} className="timeline-item">
-                <Card className="border-l-4 border-l-primary transition-all duration-300 hover:shadow-lg">
-                  <CardContent className="p-6">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                      <div>
-                        <h3 className="text-xl font-bold">{experience.title}</h3>
-                        <p className="text-muted-foreground">{experience.company}</p>
+          <div className="space-y-6">
+            <motion.div className="space-y-5" variants={containerVariants}>
+              {experiences.map((experience, index) => (
+                <motion.div
+                  key={`${experience.title}-${experience.period}`}
+                  className="timeline-item"
+                  variants={itemVariants}
+                >
+                  <Card className="agency-surface overflow-hidden py-0 transition-transform duration-300 hover:-translate-y-1">
+                    <CardContent className="p-0">
+                      <div className="grid gap-0 md:grid-cols-[0.72fr_1.28fr]">
+                        <div className="border-b border-border/45 bg-background/35 p-6 md:border-b-0 md:border-r">
+                          <p className="text-xs uppercase text-muted-foreground">Case 0{index + 1}</p>
+                          <h3 className="mt-4 font-sans text-2xl font-black">{experience.title}</h3>
+                          <p className="mt-2 text-sm text-muted-foreground">{experience.company}</p>
+                          <div className="mt-5 flex flex-wrap gap-2">
+                            <Badge variant="outline">{experience.period}</Badge>
+                            <Badge variant="secondary" className="gap-1">
+                              <MapPin aria-hidden="true" className="h-3 w-3" />
+                              {experience.location}
+                            </Badge>
+                          </div>
+                        </div>
+                        <div className="p-6">
+                          <ul className="space-y-4">
+                            {experience.achievements.map((achievement) => (
+                              <li key={achievement} className="flex gap-3 text-sm leading-7 text-muted-foreground">
+                                <ArrowUpRight aria-hidden="true" className="mt-1 h-4 w-4 shrink-0 text-primary" />
+                                <span>{achievement}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
-                      <div className="mt-2 md:mt-0 flex flex-col md:items-end">
-                        <Badge variant="outline" className="mb-1 md:mb-0">
-                          {experience.period}
-                        </Badge>
-                        <span className="text-sm text-muted-foreground">{experience.location}</span>
-                      </div>
-                    </div>
-                    <ul className="mt-4 space-y-2">
-                      {experience.achievements.map((achievement, i) => (
-                        <li key={i} className="flex items-start">
-                          <span className="mr-2 mt-1 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0"></span>
-                          <span className="text-sm text-muted-foreground">{achievement}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </div>
-            ))}
-          </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
 
-          {/* Skills Section */}
-          <div className="mt-20" id="skills">
-            <Skills />
+            <motion.div id="skills" className="pt-8" variants={itemVariants}>
+              <Skills />
+            </motion.div>
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }

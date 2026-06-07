@@ -1,75 +1,110 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Code2, Globe, Server, Users } from "lucide-react";
+"use client"
+
+import { motion } from "framer-motion"
+import { Code2, Globe, Layers3, Server, Users } from "lucide-react"
+
+import { Card, CardContent } from "@/components/ui/card"
+import { useInView } from "@/hooks/useInView"
+import { useReducedMotion } from "@/hooks/useReducedMotion"
+
+const features = [
+  {
+    icon: Code2,
+    title: "Interface Engineering",
+    description: "React, TypeScript, and Tailwind interfaces with strong attention to responsive behavior.",
+  },
+  {
+    icon: Server,
+    title: "Product Backends",
+    description: "Node.js, REST APIs, database flows, and deployment-ready full-stack implementation.",
+  },
+  {
+    icon: Users,
+    title: "Delivery Rhythm",
+    description: "Comfortable leading small teams, clarifying scope, and shipping with a steady cadence.",
+  },
+  {
+    icon: Globe,
+    title: "Remote Collaboration",
+    description: "Clear async communication across product, design, and engineering contexts.",
+  },
+]
 
 export default function About() {
-  const features = [
-    {
-      icon: <Code2 className="h-10 w-10 text-primary" />,
-      title: "Full Stack Development",
-      description: "Expertise in JavaScript, TypeScript, React.js, Node.js,",
+  const { ref, isInView } = useInView({ threshold: 0.15, once: true })
+  const prefersReducedMotion = useReducedMotion()
+
+  const containerVariants = {
+    hidden: { opacity: prefersReducedMotion ? 1 : 0 },
+    visible: {
+      opacity: 1,
+      transition: prefersReducedMotion
+        ? { duration: 0 }
+        : { staggerChildren: 0.12, delayChildren: 0.1 },
     },
-    {
-      icon: <Server className="h-10 w-10 text-primary" />,
-      title: "Cloud Solutions",
-      description: "vercel,vps and for scalable and reliable deployments",
+  }
+
+  const itemVariants = {
+    hidden: prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: prefersReducedMotion
+        ? { duration: 0 }
+        : { duration: 0.55, ease: "easeOut" },
     },
-    {
-      icon: <Users className="h-10 w-10 text-primary" />,
-      title: "Team Leadership",
-      description:
-        "lead a team of 5 developers to successfully deliver projects on time",
-    },
-    {
-      icon: <Globe className="h-10 w-10 text-primary" />,
-      title: "Global Collaboration",
-      description:
-        "Have friends from different countries and cultures to work together effectively",
-    },
-  ];
+  }
 
   return (
-    <div className="w-full bg-muted/30">
-      <section id="about" className="py-20 w-full">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="space-y-12">
-            <div className="space-y-4 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                About Me
-              </h2>
-              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Software Engineer expertise as a Full Stack Developer,
-                specializing in JavaScript, TypeScript, React.js, Node.js
-              </p>
-            </div>
+    <motion.section
+      id="about"
+      ref={ref}
+      className="relative overflow-hidden bg-muted/25 py-20 md:py-32"
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+    >
+      <div className="grain-overlay absolute inset-0 opacity-55" />
+      <div className="container relative mx-auto px-4 md:px-6">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
+          <motion.div className="space-y-6" variants={itemVariants}>
+            <span className="section-eyebrow">About</span>
+            <h2 className="font-sans text-4xl font-black leading-tight tracking-normal sm:text-5xl md:text-6xl">
+              Engineer with design taste and delivery discipline.
+            </h2>
+            <p className="max-w-xl text-base leading-8 text-muted-foreground md:text-lg">
+              I build thoughtful, scalable web applications with a strong focus on performance,
+              usability, and durable engineering decisions. My work sits between product polish
+              and practical full-stack execution.
+            </p>
+          </motion.div>
 
-            <div className="mx-auto max-w-3xl text-center">
-              <p className="text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed">
-                Skilled in building a good and scalable web application with a
-                focus on performance and user experience. Experienced in cloud
-                services, team leadership, and global collaboration.
-              </p>
-            </div>
+          <motion.div className="agency-surface rounded-lg p-5 md:p-6" variants={itemVariants}>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {features.map((feature) => {
+                const Icon = feature.icon
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
-              {features.map((feature, index) => (
-                <div key={index} className="animate-in">
-                  <Card className="h-full transition-all duration-300 hover:shadow-lg hover:border-primary/50">
-                    <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
-                      <div className="p-2 rounded-full bg-primary/10">
-                        {feature.icon}
+                return (
+                  <Card key={feature.title} className="border-border/45 bg-background/35 shadow-none transition-transform duration-300 hover:-translate-y-1">
+                    <CardContent className="space-y-5 p-5">
+                      <div className="flex items-center justify-between">
+                        <div className="rounded-full bg-primary/10 p-3">
+                          <Icon aria-hidden="true" className="h-6 w-6 text-primary" />
+                        </div>
+                        <Layers3 aria-hidden="true" className="h-5 w-5 text-muted-foreground" />
                       </div>
-                      <h3 className="text-xl font-bold">{feature.title}</h3>
-                      <p className="text-muted-foreground">
-                        {feature.description}
-                      </p>
+                      <div className="space-y-2">
+                        <h3 className="font-sans text-xl font-bold">{feature.title}</h3>
+                        <p className="text-sm leading-7 text-muted-foreground">{feature.description}</p>
+                      </div>
                     </CardContent>
                   </Card>
-                </div>
-              ))}
+                )
+              })}
             </div>
-          </div>
+          </motion.div>
         </div>
-      </section>
-    </div>
-  );
+      </div>
+    </motion.section>
+  )
 }

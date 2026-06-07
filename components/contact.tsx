@@ -1,248 +1,223 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Phone } from "lucide-react";
+"use client"
+
+import { motion } from "framer-motion"
+import { ArrowUpRight, Github, Linkedin, Mail, MapPin, Phone } from "lucide-react"
+
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { useFormState } from "@/hooks/useFormState"
+import { useInView } from "@/hooks/useInView"
+import { useReducedMotion } from "@/hooks/useReducedMotion"
+import type { ContactInfo } from "@/types"
+
+const contactInfo: ContactInfo[] = [
+  {
+    title: "Email",
+    value: "boyblanco77@gmail.com",
+    link: "mailto:boyblanco77@gmail.com",
+  },
+  {
+    title: "Location",
+    value: "Brebes, Indonesia",
+    link: "https://maps.google.com/?q=Brebes,Indonesia",
+    external: true,
+  },
+  {
+    title: "Phone",
+    value: "Available on request",
+  },
+]
+
+const contactIcons = {
+  Email: Mail,
+  Location: MapPin,
+  Phone: Phone,
+} as const
 
 export default function Contact() {
-  const contactInfo = [
-    {
-      icon: <Mail className="h-6 w-6 text-primary" />,
-      title: "Email",
-      value: "boyblanco77@gmail.com",
-      link: "mailto:boyblanco77@gmail.com",
+  const { ref, isInView } = useInView({ threshold: 0.1, once: true })
+  const prefersReducedMotion = useReducedMotion()
+  const { status, message, isLoading, handleSubmit } = useFormState({
+    action: "https://formspree.io/f/xanoenzo",
+  })
+
+  const containerVariants = {
+    hidden: { opacity: prefersReducedMotion ? 1 : 0 },
+    visible: {
+      opacity: 1,
+      transition: prefersReducedMotion
+        ? { duration: 0 }
+        : { staggerChildren: 0.12, delayChildren: 0.1 },
     },
-    {
-      icon: <MapPin className="h-6 w-6 text-primary" />,
-      title: "Location",
-      value: "Brebes, Indonesia",
-      link: "https://maps.google.com/?q=Brebes,Indonesia",
+  }
+
+  const itemVariants = {
+    hidden: prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: prefersReducedMotion
+        ? { duration: 0 }
+        : { duration: 0.55, ease: "easeOut" },
     },
-    {
-      icon: <Phone className="h-6 w-6 text-primary" />,
-      title: "Phone",
-      value: "Available on request",
-      link: null,
-    },
-  ];
+  }
 
   return (
-    <div className="w-full bg-muted/30">
-      <section id="contact" className="py-20">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="space-y-12">
-            <div className="space-y-4 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Get In Touch
-              </h2>
-              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Have a project in mind or want to discuss opportunities? I'd
-                love to hear from you!
-              </p>
-            </div>
+    <motion.section
+      id="contact"
+      ref={ref}
+      className="relative overflow-hidden bg-muted/25 py-20 md:py-32"
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+    >
+      <div className="grain-overlay absolute inset-0 opacity-60" />
+      <div className="container relative mx-auto px-4 md:px-6">
+        <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-14">
+          <motion.div className="space-y-7" variants={itemVariants}>
+            <span className="section-eyebrow">Contact</span>
+            <h2 className="font-sans text-4xl font-black leading-tight tracking-normal sm:text-5xl md:text-6xl">
+              Have a build that needs care?
+            </h2>
+            <p className="max-w-xl text-base leading-8 text-muted-foreground md:text-lg">
+              Send a short note about the project, timeline, or team. I will respond with a practical next step.
+            </p>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12">
-              <div className="lg:col-span-2">
-                <Card>
-                  <CardContent className="p-6">
-                    <form
-                      action="https://formspree.io/f/xanoenzo"
-                      method="POST"
-                      className="space-y-6"
-                    >
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                          <label htmlFor="name" className="text-sm font-medium">
-                            Name
-                          </label>
-                          <Input
-                            id="name"
-                            name="name"
-                            placeholder="Your name"
-                            required
-                          />
-                        </div>
-                        <div className="space-y-2">
-                          <label
-                            htmlFor="email"
-                            className="text-sm font-medium"
-                          >
-                            Email
-                          </label>
-                          <Input
-                            id="email"
-                            name="email"
-                            type="email"
-                            placeholder="Your email"
-                            required
-                          />
-                        </div>
-                      </div>
-                      <div className="space-y-2">
-                        <label
-                          htmlFor="subject"
-                          className="text-sm font-medium"
-                        >
-                          Subject
-                        </label>
-                        <Input
-                          id="subject"
-                          name="subject"
-                          placeholder="Subject of your message"
-                          required
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <label
-                          htmlFor="message"
-                          className="text-sm font-medium"
-                        >
-                          Message
-                        </label>
-                        <Textarea
-                          id="message"
-                          name="message"
-                          placeholder="Your message"
-                          className="min-h-[150px]"
-                          required
-                        />
-                      </div>
-                      <Button type="submit" className="w-full">
-                        Send Message
-                      </Button>
-                      <noscript>
-                        <p className="text-sm text-center text-muted-foreground mt-2">
-                          Please enable JavaScript to use the form, or email me
-                          directly.
-                        </p>
-                      </noscript>
-                    </form>
-                  </CardContent>
-                </Card>
-              </div>
+            <div className="space-y-4">
+              {contactInfo.map((info) => {
+                const Icon = contactIcons[info.title as keyof typeof contactIcons]
 
-              <div className="space-y-6">
-                {contactInfo.map((info, index) => (
-                  <Card key={index} className="overflow-hidden">
-                    <CardContent className="p-6 flex items-start gap-4">
-                      <div className="bg-primary/10 p-3 rounded-full mt-1">
-                        {info.icon}
+                return (
+                  <Card key={info.title} className="border-border/45 bg-background/35 shadow-none">
+                    <CardContent className="flex items-start gap-4 p-4">
+                      <div className="rounded-full bg-primary/10 p-3">
+                        <Icon aria-hidden="true" className="h-5 w-5 text-primary" />
                       </div>
-                      <div>
-                        <h3 className="font-medium">{info.title}</h3>
+                      <div className="min-w-0 space-y-1">
+                        <h3 className="font-sans text-sm font-bold">{info.title}</h3>
                         {info.link ? (
                           <a
                             href={info.link}
-                            className="text-muted-foreground hover:text-primary transition-colors"
-                            target={
-                              info.title === "Location" ? "_blank" : undefined
-                            }
-                            rel={
-                              info.title === "Location"
-                                ? "noopener noreferrer"
-                                : undefined
-                            }
+                            className="break-words text-sm text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                            target={info.external ? "_blank" : undefined}
+                            rel={info.external ? "noopener noreferrer" : undefined}
                           >
                             {info.value}
                           </a>
                         ) : (
-                          <p className="text-muted-foreground">{info.value}</p>
+                          <p className="text-sm text-muted-foreground">{info.value}</p>
                         )}
                       </div>
                     </CardContent>
                   </Card>
-                ))}
-
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="font-medium mb-2">Connect with me</h3>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      Find me on these platforms
-                    </p>
-                    <div className="flex gap-4">
-                      <Button variant="outline" size="icon" asChild>
-                        <a
-                          href="https://github.com/Wildann77"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="h-5 w-5"
-                          >
-                            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-                            <path d="M9 18c-4.51 2-5-2-7-2"></path>
-                          </svg>
-                          <span className="sr-only">GitHub</span>
-                        </a>
-                      </Button>
-                      <Button variant="outline" size="icon" asChild>
-                        <a
-                          href="https://www.linkedin.com/in/wildan-haifan-jadid-1820222a8/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="h-5 w-5"
-                          >
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                            <rect width="4" height="12" x="2" y="9"></rect>
-                            <circle cx="4" cy="4" r="2"></circle>
-                          </svg>
-                          <span className="sr-only">LinkedIn</span>
-                        </a>
-                      </Button>
-                      <Button variant="outline" size="icon" asChild>
-                        <a href="mailto:boyblanco77@gmail.com">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="h-5 w-5"
-                          >
-                            <rect
-                              width="20"
-                              height="16"
-                              x="2"
-                              y="4"
-                              rx="2"
-                            ></rect>
-                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                          </svg>
-                          <span className="sr-only">Email</span>
-                        </a>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
+                )
+              })}
             </div>
-          </div>
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <Card className="agency-surface overflow-hidden py-0">
+              <CardContent className="p-5 md:p-6">
+                <div className="mb-6 flex flex-col gap-3 border-b border-border/45 pb-6 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <p className="text-xs uppercase text-muted-foreground">Project inquiry</p>
+                    <h3 className="mt-2 font-sans text-2xl font-black">Start the conversation</h3>
+                  </div>
+                  <div className="flex gap-2">
+                    <Button variant="outline" size="icon" className="rounded-full bg-background/35" asChild>
+                      <a href="https://github.com/Wildann77" target="_blank" rel="noopener noreferrer">
+                        <Github aria-hidden="true" className="h-5 w-5" />
+                        <span className="sr-only">GitHub</span>
+                      </a>
+                    </Button>
+                    <Button variant="outline" size="icon" className="rounded-full bg-background/35" asChild>
+                      <a
+                        href="https://www.linkedin.com/in/wildan-haifan-jadid-1820222a8/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Linkedin aria-hidden="true" className="h-5 w-5" />
+                        <span className="sr-only">LinkedIn</span>
+                      </a>
+                    </Button>
+                    <Button variant="outline" size="icon" className="rounded-full bg-background/35" asChild>
+                      <a href="mailto:boyblanco77@gmail.com">
+                        <Mail aria-hidden="true" className="h-5 w-5" />
+                        <span className="sr-only">Email</span>
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+
+                <form className="space-y-5" onSubmit={handleSubmit}>
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="text-sm font-medium">
+                        Name
+                      </label>
+                      <Input id="name" name="name" placeholder="Your name" autoComplete="name" required />
+                    </div>
+                    <div className="space-y-2">
+                      <label htmlFor="email" className="text-sm font-medium">
+                        Email
+                      </label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="you@example.com"
+                        autoComplete="email"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="subject" className="text-sm font-medium">
+                      Subject
+                    </label>
+                    <Input id="subject" name="subject" placeholder="What are we building?" required />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="text-sm font-medium">
+                      Message
+                    </label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      placeholder="Tell me a bit about your idea, timeline, or team."
+                      className="min-h-[180px]"
+                      minLength={10}
+                      required
+                    />
+                  </div>
+                  <div className="space-y-3">
+                    <Button type="submit" className="w-full rounded-full" disabled={isLoading} aria-busy={isLoading}>
+                      {isLoading ? "Sending..." : "Send Message"}
+                      <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
+                    </Button>
+                    {message ? (
+                      <p
+                        role={status === "error" ? "alert" : "status"}
+                        aria-live="polite"
+                        className={status === "error" ? "text-sm text-destructive" : "text-sm text-primary"}
+                      >
+                        {message}
+                      </p>
+                    ) : null}
+                  </div>
+                  <noscript>
+                    <p className="mt-2 text-center text-sm text-muted-foreground">
+                      Please enable JavaScript to use the form, or email me directly.
+                    </p>
+                  </noscript>
+                </form>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
-      </section>
-    </div>
-  );
+      </div>
+    </motion.section>
+  )
 }
