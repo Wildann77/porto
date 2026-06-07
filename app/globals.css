@@ -82,11 +82,21 @@
   border-color: var(--border);
 }
 
+html {
+  scrollbar-gutter: stable;
+  overflow-x: clip;
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-mono);
   padding-top: 4rem;
+}
+
+::selection {
+  background-color: color-mix(in oklch, var(--primary), transparent 70%);
+  color: var(--foreground);
 }
 
 /* Timeline */
@@ -120,11 +130,71 @@ body {
   background-image: linear-gradient(
     to right,
     var(--primary),
+    var(--secondary),
     color-mix(in oklch, var(--primary), transparent 30%)
   );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+
+.section-eyebrow {
+  @apply inline-flex items-center rounded-full border border-border/50 bg-card/60 px-3 py-1 text-xs font-semibold uppercase text-muted-foreground backdrop-blur;
+  letter-spacing: 0.18em;
+}
+
+.agency-surface {
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in oklch, var(--card), transparent 8%),
+      color-mix(in oklch, var(--muted), transparent 38%)
+    );
+  border: 1px solid color-mix(in oklch, var(--border), transparent 52%);
+  box-shadow:
+    0 24px 80px color-mix(in oklch, var(--foreground), transparent 92%),
+    inset 0 1px 0 color-mix(in oklch, var(--primary), transparent 70%);
+  backdrop-filter: blur(18px);
+}
+
+.editorial-grid {
+  background-image:
+    linear-gradient(
+      color-mix(in oklch, var(--border), transparent 82%) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in oklch, var(--border), transparent 82%) 1px,
+      transparent 1px
+    );
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at center, black, transparent 72%);
+}
+
+.grain-overlay {
+  pointer-events: none;
+  background-image:
+    radial-gradient(
+      circle at 20% 20%,
+      color-mix(in oklch, var(--primary), transparent 88%),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 80% 10%,
+      color-mix(in oklch, var(--secondary), transparent 90%),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 60% 86%,
+      color-mix(in oklch, var(--accent), transparent 88%),
+      transparent 30%
+    );
+}
+
+.metric-tile {
+  @apply rounded-lg border border-border/45 bg-background/45 p-4 backdrop-blur-sm;
 }
 
 /* Project Card */

@@ -5,6 +5,9 @@ import ClientLayout from "./client";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_APP_URL || "https://nihalmaskey.com"
+  ),
   title: "Wildan Haifan Jadid | Full Stack Software Engineer",
   description:
     "Portfolio of Wildan Haifan Jadid, a Full Stack Software Engineer based in Brebes, Indonesia, specializing in JavaScript, TypeScript, React.js, Node.js.",
