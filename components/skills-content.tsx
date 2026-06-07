@@ -1,60 +1,55 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/ui/card"
+
+const skillCategories = [
+  {
+    category: "Frontend",
+    skills: ["JavaScript", "TypeScript", "React.js", "HTML/CSS", "Tailwind CSS"],
+  },
+  {
+    category: "Backend",
+    skills: ["Node.js", "PHP", "Laravel", "Express.js", "RESTful APIs"],
+  },
+  {
+    category: "Database",
+    skills: ["MySQL", "PostgreSQL", "MongoDB", "Firebase"],
+  },
+  {
+    category: "Cloud & DevOps",
+    skills: ["GitHub Actions", "Vercel", "VPS"],
+  },
+  {
+    category: "Tools & Methods",
+    skills: ["Git", "Agile", "Scrum", "JIRA", "Figma"],
+  },
+  {
+    category: "Exploration",
+    skills: ["Python"],
+  },
+]
 
 export default function SkillsContent() {
-  const skillCategories = [
-    {
-      category: "Frontend",
-      skills: [
-        "JavaScript",
-        "TypeScript",
-        "React.js",
-        "HTML/CSS",
-        "Tailwind CSS",
-      ],
-    },
-    {
-      category: "Backend",
-      skills: ["Node.js", "PHP", "Laravel", "Express.js", "RESTful APIs"],
-    },
-    {
-      category: "Database",
-      skills: ["MySQL", "PostgreSQL", "MongoDB", "Firebase"],
-    },
-    {
-      category: "Cloud & DevOps",
-      skills: ["GitHub Actions", "vercel", "Vps"],
-    },
-    {
-      category: "Tools & Methodologies",
-      skills: ["Git", "Agile", "Scrum", "JIRA", "Figma"],
-    },
-    {
-      category: "Others",
-      skills: ["Python"],
-    },
-  ];
-
   return (
-    <div>
-      <div className="space-y-4 text-center">
-        <h3 className="text-2xl font-bold tracking-tighter sm:text-3xl">
-          Skills
-        </h3>
-        <p className="mx-auto max-w-[700px] text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed">
-          My expertise and technical proficiencies
+    <div className="agency-surface rounded-lg p-5 md:p-6">
+      <div className="flex flex-col gap-3 border-b border-border/45 pb-6 md:flex-row md:items-end md:justify-between">
+        <div className="space-y-3">
+          <span className="section-eyebrow">Skills</span>
+          <h3 className="font-sans text-3xl font-black tracking-normal">Technical range</h3>
+        </div>
+        <p className="max-w-md text-sm leading-7 text-muted-foreground">
+          Practical stack coverage for frontends, APIs, data, delivery tooling, and team workflows.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-        {skillCategories.map((category, index) => (
-          <div key={index} className="skill-card">
-            <Card className="h-full border-t-4 border-t-primary">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-4">{category.category}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill, i) => (
-                    <Badge key={i} variant="secondary" className="text-sm">
+      <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {skillCategories.map((category) => (
+          <div key={category.category} className="skill-card">
+            <Card className="h-full border-border/45 bg-background/35 shadow-none">
+              <CardContent className="p-5">
+                <h4 className="font-sans text-lg font-bold">{category.category}</h4>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {category.skills.map((skill) => (
+                    <Badge key={skill} variant="secondary" className="text-xs">
                       {skill}
                     </Badge>
                   ))}
@@ -65,5 +60,5 @@ export default function SkillsContent() {
         ))}
       </div>
     </div>
-  );
+  )
 }
